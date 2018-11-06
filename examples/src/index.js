@@ -142,7 +142,7 @@ class App extends React.Component {
             <br />
             <Typography variant="title">Import it!</Typography>
             <Highlight className='c'>
-                {"import AndroidNotification from 'react-mui-android-notification;"}
+                {"import AndroidNotification from 'react-mui-android-notification';"}
             </Highlight>
             <Typography variant="title">Use it!</Typography>
             <Highlight className='html'>
