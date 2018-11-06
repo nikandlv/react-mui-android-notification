@@ -136,7 +136,7 @@ class App extends React.Component {
             <Typography variant="display1">Usage</Typography>
             <br/>
             <Typography variant="title">Install it!</Typography>
-            <Highlight className='bash'>
+            <Highlight className='c'>
                 {"npm install react-mui-android-notification"}
             </Highlight>
             <br />
