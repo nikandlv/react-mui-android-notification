@@ -1,6 +1,6 @@
 {
   "name": "react-mui-android-notification",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Component, Android Notification for material-ui",
   "main": "dist/index.js",
   "scripts": {
