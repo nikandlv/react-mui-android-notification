@@ -54,6 +54,23 @@ const items = [
         body: "this is a basic notification with custom name, title body with 2 buttons and 1 iconbutton"
     },
     {
+        title: "V2 style Notification with Button and IconButton and custom icon",
+        props: {
+            name:"Messages",
+            title:"Luv",
+            body:"Sorry but i dont love you back ...",
+            icon:<Message />,
+            v2:true,
+            buttons:[<Button>Replay</Button>,<Button>Mark as read</Button>,<IconButton><Add/></IconButton>],
+        },
+        propsString: {
+            buttons:'[<Button>Replay</Button>,<Button>Mark as read</Button>]',
+            icon:'<Message />',
+            v2:true,
+        },
+        body: "this is a basic notification with custom name, title body with 2 buttons and 1 iconbutton"
+    },
+    {
         title: "Notification with Button and IconButton and custom icon",
         props: {
             name:"Messages",
@@ -88,7 +105,7 @@ function formatWithProps(entry) {
                 return
             }
         }
-        
+
         switch (typeof item) {
             case 'string':
                 result += "\"" + item + "\"";
@@ -118,9 +135,9 @@ class App extends React.Component {
         return (
             <div className="demo-body">
         <Paper className="demo-paper">
-        
+
             <Typography variant="display2">Android Notification</Typography>
-            
+
             <br />
             <div className="notification">
             <AndroidNotification

@@ -32,10 +32,10 @@ const styles = theme => ({
   chevron : {
     fontSize: "15px",
     color: "inherit",
-    
+
     transformOrigin: "center",
     transition: "0.5s",
-    
+
   },
   chevron_active: {
     transform: "rotate(-180deg)",
@@ -88,6 +88,13 @@ const styles = theme => ({
   gone : {
     display: "none"
   },
+  v2 : {
+    borderRadius:16
+  },
+  v2_bottom: {
+    borderBottomRightRadius: 16,
+    borderBottomLeftRadius: 16
+  },
     rounded:{
         borderBottomLeftRadius:4,
         borderBottomRightRadius:4,
@@ -119,8 +126,9 @@ class AndroidNotification extends React.Component {
         const onTitleClick = this.props.onTitleClick || noAction
         const onBodyClick = this.props.onBodyClick || noAction
         const hasButtons = buttons.length !== 0;
+        const v2 = this.props.v2 || false;
         return (
-        <Paper square={!rounded} className={classes.paper} style={{color:accent,...this.props.styles||{}}}>
+        <Paper square={!rounded} className={classes.paper+(v2 === true ? " "+classes.v2:"")} style={{color:accent,...this.props.styles||{}}}>
         <div className={classes.top}>
           <span
             className={classes.expand_group}
@@ -132,7 +140,7 @@ class AndroidNotification extends React.Component {
             <Typography className={classes.timestamp}>•</Typography>
             <Typography className={classes.timestamp}>{timestamp}</Typography>
             <KeyboardArrowDown
-              className={ (classes.chevron + " ") + 
+              className={ (classes.chevron + " ") +
                 (expand ? (classes.chevron_active + " ") : "") +
                 (hasButtons ? "" : classes.gone)
               }
@@ -150,7 +158,7 @@ class AndroidNotification extends React.Component {
         </div>
         <div
           className={
-              (rounded?classes.rounded:"")+ ' ' + classes.bottom + ' ' + (expand ? classes.bottom_show : "") + (hasButtons ? "" : classes.gone)
+              (v2 === true ?classes.v2_bottom:"")+" "+(rounded?classes.rounded:"")+ ' ' + classes.bottom + ' ' + (expand ? classes.bottom_show : "") + (hasButtons ? "" : classes.gone)
           }
         >
           <div className={classes.button_body + " " + (expand ? classes.bottom_show : "")}>
