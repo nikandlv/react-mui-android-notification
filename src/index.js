@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Whatshot from '@material-ui/icons/Whatshot'
 import { NotificationHeader } from './NotificationHeader';
+import { NotificationBody } from './NotificationBody';
+import { NotificationActions } from './NotificationActions';
 
 const styles = theme => ({
   paper: {
@@ -131,6 +133,10 @@ class AndroidNotification extends React.Component {
         return (
         <Paper square={!rounded} className={classes.paper+(v2 === true ? " "+classes.v2:"")} style={{color:accent,...this.props.styles||{}}}>
           <NotificationHeader />
+          <NotificationBody />
+          <NotificationActions>
+            
+          </NotificationActions>
         <div className={classes.top}>
           <span
             className={classes.expand_group}
