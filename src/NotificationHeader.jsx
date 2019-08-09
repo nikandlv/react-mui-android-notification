@@ -27,7 +27,11 @@ const useStyles = makeStyles(theme => ({
     color: '#7e7e7e'   
   },
   chevron: {
-      fontSize: '1.1rem'
+      fontSize: '1.1rem',
+      transition: 'transform 300ms',
+      '&.expanded': {
+        transform: 'rotate(180deg)'
+      }
   }
 }));
 export default function NotificationHeader(props) {
@@ -36,6 +40,7 @@ export default function NotificationHeader(props) {
     const icon = props.icon
     const date = props.date
     const accent = props.accent
+    const expanded = props.expanded
     return (
         <div className={classes.root}>
             <div className={classes.icon} style={{color: accent}}>
@@ -44,7 +49,7 @@ export default function NotificationHeader(props) {
             <Typography className={classes.name} style={{color: accent}} variant="caption">{name}</Typography>
             <span className={classes.dot}> •</span>
             <Typography className={classes.date} variant="caption">{date}</Typography>
-            <Chevron className={classes.chevron} />
+            <Chevron className={`${classes.chevron} ${(expanded) ? 'expanded' : ''}`} />
         </div>
     )
 }

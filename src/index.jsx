@@ -16,6 +16,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function AndroidNotification(props) {
   const classes = useStyles()
+  const [expanded, setExpanded] = React.useState(false)
+
   const defaultProps = {
     name: 'Android Notification',
     icon: <Whatshot />,
@@ -24,10 +26,15 @@ export default function AndroidNotification(props) {
     title: 'Awesome Notification',
     body: 'this is an awesome notification !'
   }
+
+  function toggleExpandMode() {
+    setExpanded(!expanded)
+  }
+
   return (
-      <ButtonBase className={classes.root}>
+      <ButtonBase className={classes.root} onClick={toggleExpandMode}>
         <NotificationWrapper className={classes.root}>
-            <NotificationHeader {...defaultProps} {...props}/>
+            <NotificationHeader expanded={expanded} {...defaultProps} {...props}/>
             <NotificationBody {...defaultProps} {...props}/>
           <NotificationActions {...defaultProps} {...props}>
           </NotificationActions>
