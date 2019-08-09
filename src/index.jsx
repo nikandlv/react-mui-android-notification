@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'unset',
         flexDirection: 'column',
         alignItems: 'unset',
-
         "&.pie": {
           borderRadius: '1rem'
         },
@@ -23,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 export default function AndroidNotification(props) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
-  const variant = props.variant || 'pie'
+  const variant = props.variant || 'oreo'
   const defaultProps = {
     name: 'Android Notification',
     icon: <Whatshot />,
