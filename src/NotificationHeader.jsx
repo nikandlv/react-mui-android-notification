@@ -4,13 +4,14 @@ import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-      display: 'flex'
+      display: 'flex',
+      alignItems: 'center'
   },
   icon: {
-
+    
   },
   name: {
-
+    color: 'black'
   }
 }));
 export default function NotificationHeader(props) {
@@ -22,7 +23,7 @@ export default function NotificationHeader(props) {
             <div className={classes.icon}>
                 {icon}
             </div>
-            <Typography className={classes.name} variant="body2">{name}</Typography>
+            <Typography className={classes.name} variant="caption">{name}</Typography>
         </div>
     )
 }
