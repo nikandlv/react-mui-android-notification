@@ -6,10 +6,13 @@ import Chevron from '@material-ui/icons/KeyboardArrowDown'
 const useStyles = makeStyles(theme => ({
   root: {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      padding: '0.8rem 1rem'
   },
   icon: {
-    
+      '& svg': {
+          fontSize: '1.3rem'
+      }
   },
   name: {
     color: 'black',
@@ -17,11 +20,11 @@ const useStyles = makeStyles(theme => ({
   },
   dot: {
     margin: '0 0.2rem',
-    color: '#c5c5c5'
+    color: '#7e7e7e'
   },
   date: {
     margin: '0 0.2rem',
-    color: '#c5c5c5'   
+    color: '#7e7e7e'   
   },
   chevron: {
       fontSize: '1.1rem'
@@ -32,12 +35,13 @@ export default function NotificationHeader(props) {
     const name = props.name
     const icon = props.icon
     const date = props.date
+    const accent = props.accent
     return (
         <div className={classes.root}>
-            <div className={classes.icon}>
+            <div className={classes.icon} style={{color: accent}}>
                 {icon}
             </div>
-            <Typography className={classes.name} variant="caption">{name}</Typography>
+            <Typography className={classes.name} style={{color: accent}} variant="caption">{name}</Typography>
             <span className={classes.dot}> •</span>
             <Typography className={classes.date} variant="caption">{date}</Typography>
             <Chevron className={classes.chevron} />
