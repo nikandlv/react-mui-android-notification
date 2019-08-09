@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/nikandlv/react-mui-android-notification#readme",
   "devDependencies": {
-    "@material-ui/core": "^3.4.0",
-    "@material-ui/icons": "^3.0.1",
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -46,14 +46,18 @@
     "css-loader": "^1.0.1",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "lodash": ">=4.17.13",
     "normalize.css": "^8.0.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-highlight": "^0.12.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": ">=3.1.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/runtime": "7.0.0-beta.55",
+    "@material-ui/styles": "^4.3.0"
+  }
 }
