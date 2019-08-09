@@ -16,6 +16,7 @@ const items = [
     {
         title: "Simple Notification",
         props: {
+            buttons:() => {},
         },
         body: "this is a basic notification without any props and actions"
     },
@@ -24,7 +25,14 @@ const items = [
         props: {
             title:"Awesome Notification",
             body:"this is an awesome notification !",
-            timeStamp:"Nov 6"
+            date:"Nov 6",
+            buttons:() => (
+                <React.Fragment>
+                    <Button>Replay</Button>
+                    <Button>Mark as read</Button>
+                    <IconButton><Add/></IconButton>
+                </React.Fragment>
+            ),
         },
         body: "this is a basic notification with custom title and body with no actions "
     },
@@ -33,7 +41,14 @@ const items = [
         props: {
             name:"Awesome Notification",
             title:"Awesome Notification",
-            body:"this is an awesome notification !"
+            body:"this is an awesome notification !",
+            buttons:() => (
+                <React.Fragment>
+                    <Button>Replay</Button>
+                    <Button>Mark as read</Button>
+                    <IconButton><Add/></IconButton>
+                </React.Fragment>
+            ),
         },
         body: "this is a basic notification with custom name, title and and body"
     }
@@ -45,7 +60,13 @@ const items = [
             title:"Luv",
             body:"Sorry but i dont love you back ...",
             icon:<Message />,
-            buttons:[<Button>Replay</Button>,<Button>Mark as read</Button>,<IconButton><Add/></IconButton>],
+            buttons:() => (
+                <React.Fragment>
+                    <Button>Replay</Button>
+                    <Button>Mark as read</Button>
+                    <IconButton><Add/></IconButton>
+                </React.Fragment>
+            ),
         },
         propsString: {
             buttons:'[<Button>Replay</Button>,<Button>Mark as read</Button>]',
@@ -61,7 +82,13 @@ const items = [
             body:"Sorry but i dont love you back ...",
             icon:<Message />,
             v2:true,
-            buttons:[<Button>Replay</Button>,<Button>Mark as read</Button>,<IconButton><Add/></IconButton>],
+            buttons:() => (
+                <React.Fragment>
+                    <Button>Replay</Button>
+                    <Button>Mark as read</Button>
+                    <IconButton><Add/></IconButton>
+                </React.Fragment>
+            ),
         },
         propsString: {
             buttons:'[<Button>Replay</Button>,<Button>Mark as read</Button>]',
@@ -83,7 +110,13 @@ const items = [
                 alert("body clicked!");
             },
             icon:<Message />,
-            buttons:[<Button>Replay</Button>,<Button>Mark as read</Button>,<IconButton><Add/></IconButton>],
+            buttons:() => (
+                <React.Fragment>
+                    <Button>Replay</Button>
+                    <Button>Mark as read</Button>
+                    <IconButton><Add/></IconButton>
+                </React.Fragment>
+            ),
         },
         propsString: {
             buttons:'[<Button>Replay</Button>,<Button>Mark as read</Button>]',
@@ -143,11 +176,14 @@ class App extends React.Component {
             <AndroidNotification
                 name="AndroidNotification"
                 title="My Notification"
-                timeStamp="Nov 6"
+                date="Nov 6"
                 body="This is an awesome Notification!!!"
-                buttons={[<Button>Reply</Button>, <Button>Archive</Button>,<IconButton><Add/></IconButton>]}
                 expand={this.state.expanded}
-            />
+            >
+                <Button>Reply</Button>
+                <Button>Archive</Button>
+                <IconButton><Add/></IconButton>
+                </AndroidNotification>
             </div>
             <br />
             <Typography variant="display1">Usage</Typography>
@@ -168,7 +204,7 @@ class App extends React.Component {
                 +"\title:{Notification Title : string}\n"
                 +"\tbody:{Notification Body : string}\n"
                 +"\ticon:{Notification Icon : react SvgIcon Component, default: whatshot}\n"
-                +"\ttimeStamp:{Notification time : string, default : now}\n"
+                +"\tdate:{Notification time : string, default : now}\n"
                 +"\taccent:{Notification Accent : string, default : theme.palette.primary.main}\n"
                 +"\texpand:{Notification Expand state : bool, default : false}\n"
                 +"\trounded:{Notification Round state : bool, default : false}\n"
@@ -190,7 +226,9 @@ class App extends React.Component {
                             <Typography variant="title">{item.title}</Typography>
                             <br />
                             <div className="notification">
-                                <AndroidNotification {...item.props} />
+                                <AndroidNotification {...item.props}>
+                                    {item.props.buttons()}
+                                </AndroidNotification>
                             </div>
                             <Highlight className='xml html js javascript'>
                                 {
