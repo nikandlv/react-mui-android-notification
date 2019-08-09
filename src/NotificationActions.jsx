@@ -1,5 +1,5 @@
 import React from 'react'
-export function NotificationActions() {
+export default function NotificationActions() {
     return (
         <div>
             

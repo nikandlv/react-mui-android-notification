@@ -1,5 +1,5 @@
 import React from 'react'
-export function NotificationHeader() {
+export default function NotificationHeader() {
     return (
         <div>
             
