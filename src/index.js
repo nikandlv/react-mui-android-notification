@@ -4,12 +4,12 @@ import NotificationHeader from './NotificationHeader'
 import NotificationBody from './NotificationBody'
 import NotificationActions from './NotificationActions'
 
-export default function AndroidNotification() {
+export default function AndroidNotification(props) {
   return (
-      <NotificationWrapper>
-          <NotificationHeader />
-          <NotificationBody />
-          <NotificationActions>
+      <NotificationWrapper {...props}>
+          <NotificationHeader {...props}/>
+          <NotificationBody {...props}/>
+          <NotificationActions {...props}>
             
           </NotificationActions>
       </NotificationWrapper>
