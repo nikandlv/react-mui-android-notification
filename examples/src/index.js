@@ -204,7 +204,7 @@ class App extends React.Component {
                 })
             }
             <Typography variant="body2">Author: <a href="https://www.linkedin.com/in/nikan-dalvand-8a3a49142/">Nikandlv</a></Typography>
-            <Typography variant="body2">Version: 1.0.2</Typography>
+            <Typography variant="body2">Version: 2.0.1</Typography>
             <Typography variant="body2">Github : <a href="https://github.com/nikandlv/react-mui-android-notification">nikandlv/react-mui-android-notification</a></Typography>
             <Typography variant="body2">Email : nikandalvand@gmail.com</Typography>
             <Typography variant="body2">Twitter : <a href="https://twitter.com/Nikandlv">Nikandlv</a></Typography>
