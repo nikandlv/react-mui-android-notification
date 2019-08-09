@@ -1,5 +1,5 @@
 import React from 'react'
-export function NotificationBody() {
+export default function NotificationBody() {
     return (
         <div>
             
