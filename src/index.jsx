@@ -27,13 +27,16 @@ export default function AndroidNotification(props) {
     date: 'Nov 6',
     accent: 'rgb(63, 81, 181)',
     title: 'Awesome Notification',
-    body: 'this is an awesome notification !'
+    body: 'this is an awesome notification !',
   }
 
   function toggleExpandMode() {
+    if(typeof props.children === 'undefined') {
+      return
+    }
     setExpanded(!expanded)
   }
-
+  console.log(props.children)
   return (
     <NotificationWrapper className={classes.root}>
         <ButtonBase className={classes.root} onClick={toggleExpandMode}>
@@ -41,9 +44,7 @@ export default function AndroidNotification(props) {
             <NotificationBody {...defaultProps} {...props}/>
         </ButtonBase>
         <NotificationActions expanded={expanded} {...defaultProps} {...props}>
-            <Button>
-              Test
-            </Button>
+            {props.children}
         </NotificationActions>
     </NotificationWrapper>
   )
