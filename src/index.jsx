@@ -6,21 +6,24 @@ import NotificationActions from './NotificationActions'
 import Whatshot from '@material-ui/icons/Whatshot'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/styles';
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
         textAlign: 'unset',
         flexDirection: 'column',
-        alignItems: 'unset'
+        alignItems: 'unset',
+
+        "&.pie": {
+          borderRadius: '1rem'
+        },
     },
   }));
 
 export default function AndroidNotification(props) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
-
+  const variant = props.variant || 'pie'
   const defaultProps = {
     name: 'Android Notification',
     icon: <Whatshot />,
@@ -28,6 +31,8 @@ export default function AndroidNotification(props) {
     accent: 'rgb(63, 81, 181)',
     title: 'Awesome Notification',
     body: 'this is an awesome notification !',
+    rounded: false,
+    variant: 'oreo'
   }
 
   function toggleExpandMode() {
@@ -36,10 +41,9 @@ export default function AndroidNotification(props) {
     }
     setExpanded(!expanded)
   }
-  console.log(props.children)
   return (
-    <NotificationWrapper className={classes.root}>
-        <ButtonBase className={classes.root} onClick={toggleExpandMode}>
+    <NotificationWrapper {...defaultProps} {...props}>
+        <ButtonBase className={`${classes.root} ${variant}`} onClick={toggleExpandMode}>
             <NotificationHeader expanded={expanded} {...defaultProps} {...props}/>
             <NotificationBody {...defaultProps} {...props}/>
         </ButtonBase>

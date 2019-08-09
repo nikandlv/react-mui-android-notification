@@ -25,7 +25,7 @@ const items = [
         props: {
             title:"Awesome Notification",
             body:"this is an awesome notification !",
-            timeStamp:"Nov 6",
+            date:"Nov 6",
             buttons:() => (
                 <React.Fragment>
                     <Button>Replay</Button>
@@ -176,7 +176,7 @@ class App extends React.Component {
             <AndroidNotification
                 name="AndroidNotification"
                 title="My Notification"
-                timeStamp="Nov 6"
+                date="Nov 6"
                 body="This is an awesome Notification!!!"
                 expand={this.state.expanded}
             >
@@ -204,7 +204,7 @@ class App extends React.Component {
                 +"\title:{Notification Title : string}\n"
                 +"\tbody:{Notification Body : string}\n"
                 +"\ticon:{Notification Icon : react SvgIcon Component, default: whatshot}\n"
-                +"\ttimeStamp:{Notification time : string, default : now}\n"
+                +"\tdate:{Notification time : string, default : now}\n"
                 +"\taccent:{Notification Accent : string, default : theme.palette.primary.main}\n"
                 +"\texpand:{Notification Expand state : bool, default : false}\n"
                 +"\trounded:{Notification Round state : bool, default : false}\n"

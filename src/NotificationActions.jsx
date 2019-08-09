@@ -8,7 +8,11 @@ const useStyles = makeStyles(theme => ({
       alignItems: 'center',
       padding: '.4rem .6rem .4rem .6rem',
       background: '#eeeeee',
-      maxHeight: 36
+      maxHeight: 36,
+      "&.pie": {
+        borderBottomLeftRadius: '1rem',
+        borderBottomRightRadius: '1rem'
+    }
   },
 }));
 //#eeeeee
@@ -17,7 +21,7 @@ export default function NotificationActions(props) {
     const expanded = props.expanded
     return (
         <Collapse in={expanded}>
-            <div className={classes.root}>
+            <div className={`${classes.root} ${props.variant}`}>
                 {props.children}
             </div>
         </Collapse>
