@@ -7,11 +7,11 @@ const useStyles = makeStyles(theme => ({
   root: {
       display: 'flex',
       alignItems: 'center',
-      padding: '0.8rem 1rem'
+      padding: '.8rem 0.8rem .4rem 0.8rem'
   },
   icon: {
       '& svg': {
-          fontSize: '1.3rem'
+          fontSize: '1.2rem'
       }
   },
   name: {
