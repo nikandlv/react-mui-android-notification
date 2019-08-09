@@ -4,6 +4,10 @@ import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown'
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Whatshot from '@material-ui/icons/Whatshot'
+import { NotificationHeader } from './NotificationHeader';
+import { NotificationBody } from './NotificationBody';
+import { NotificationActions } from './NotificationActions';
+import { NotificationWrapper } from './NotificationWrapper';
 
 const styles = theme => ({
   paper: {
@@ -129,6 +133,13 @@ class AndroidNotification extends React.Component {
         const v2 = this.props.v2 || false;
         return (
         <Paper square={!rounded} className={classes.paper+(v2 === true ? " "+classes.v2:"")} style={{color:accent,...this.props.styles||{}}}>
+          <NotificationWrapper>
+            <NotificationHeader />
+            <NotificationBody />
+            <NotificationActions>
+              
+            </NotificationActions>
+          </NotificationWrapper>
         <div className={classes.top}>
           <span
             className={classes.expand_group}
