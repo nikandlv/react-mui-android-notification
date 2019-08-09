@@ -6,11 +6,14 @@ import NotificationActions from './NotificationActions'
 import Whatshot from '@material-ui/icons/Whatshot'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/styles';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
-        textAlign: 'unset'
+        textAlign: 'unset',
+        flexDirection: 'column',
+        alignItems: 'unset'
     },
   }));
 
@@ -32,13 +35,16 @@ export default function AndroidNotification(props) {
   }
 
   return (
-      <ButtonBase className={classes.root} onClick={toggleExpandMode}>
-        <NotificationWrapper className={classes.root}>
+    <NotificationWrapper className={classes.root}>
+        <ButtonBase className={classes.root} onClick={toggleExpandMode}>
             <NotificationHeader expanded={expanded} {...defaultProps} {...props}/>
             <NotificationBody {...defaultProps} {...props}/>
-          <NotificationActions {...defaultProps} {...props}>
-          </NotificationActions>
-        </NotificationWrapper>
-      </ButtonBase>
+        </ButtonBase>
+        <NotificationActions expanded={expanded} {...defaultProps} {...props}>
+            <Button>
+              Test
+            </Button>
+        </NotificationActions>
+    </NotificationWrapper>
   )
 }

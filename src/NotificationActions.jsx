@@ -1,8 +1,11 @@
 import React from 'react'
-export default function NotificationActions() {
+import { Collapse, Button } from '@material-ui/core';
+
+export default function NotificationActions(props) {
+    const expanded = props.expanded
     return (
-        <div>
-            
-        </div>
+        <Collapse in={expanded}>
+            {props.children}
+        </Collapse>
     )
 }
