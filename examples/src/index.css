@@ -1,9 +1,9 @@
-.demo-body {
+.demo-root {
     padding: 3%;
 }
-.demo-paper{
-    padding: 3%;
-}
-.notification {
-    width: 360px;
+
+.notifcation {
+    max-width: 380px;
+    display: block;
+    margin: 1rem auto;
 }

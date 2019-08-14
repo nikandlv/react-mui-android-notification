@@ -31,24 +31,41 @@ export default function AndroidNotification(props) {
     title: 'Awesome Notification',
     body: 'this is an awesome notification !',
     rounded: false,
-    variant: 'oreo'
+    variant: 'oreo',
+    expandable: true,
+    onClick: (expanded,setExpandMode) => {
+      setExpandMode(!expanded)
+    }
   }
+  const config = { ...defaultProps, ...props }
 
-  function toggleExpandMode() {
+  function setExpandMode(expand) {
     if(typeof props.children === 'undefined') {
       return
     }
-    setExpanded(!expanded)
+    setExpanded(!expand)
   }
+  
+  function handleOnClick() {
+    config.onClick(expanded,setExpandMode)
+  }
+
+
   return (
-    <NotificationWrapper {...defaultProps} {...props}>
-        <ButtonBase className={`${classes.root} ${variant}`} onClick={toggleExpandMode}>
-            <NotificationHeader expanded={expanded} {...defaultProps} {...props}/>
-            <NotificationBody {...defaultProps} {...props}/>
+    <NotificationWrapper {...config} >
+        <ButtonBase className={`${classes.root} ${variant}`} onClick={handleOnClick}>
+            <NotificationHeader expanded={expanded} {...config} />
+            <NotificationBody {...config} />
         </ButtonBase>
-        <NotificationActions expanded={expanded} {...defaultProps} {...props}>
-            {props.children}
-        </NotificationActions>
+        {config.expandable
+          ? (
+            <NotificationActions expanded={expanded} {...config} >
+                {props.children}
+            </NotificationActions>
+          )
+          : null
+        }
+        
     </NotificationWrapper>
   )
 }

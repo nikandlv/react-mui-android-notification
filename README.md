@@ -10,8 +10,40 @@ is a simple react component for android notification
 ```
 import AndroidNotification from 'react-mui-android-notification';
 ```
-Use it!
+### Use it!
+
+##### Available configurations
+```javascript
+import React from 'react'
+import Whatshot from '@material-ui/icons/Whatshot'
+
+export default function Notification() {
+    const defaultProps = {
+        name: 'Android Notification',
+        icon: <Whatshot />,
+        date: 'Nov 6',
+        accent: 'rgb(63, 81, 181)',
+        title: 'Awesome Notification',
+        body: 'this is an awesome notification !',
+        rounded: false,
+        variant: 'oreo',
+        expandable: true,
+        onClick: (expanded,setExpandMode) => {
+            setExpandMode(!expanded)
+        }
+    }
+
+    return (
+        <AndroidNotification {...defaultProps} />
+    )
+}
+```
+
+
+
 
 #### Demo And Usage 
+
+> Work in progress!
 
 https://nikandlv.github.io/react-mui-android-notification/ 
