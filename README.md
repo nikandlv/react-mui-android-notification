@@ -47,3 +47,8 @@ export default function Notification() {
 > Work in progress!
 
 https://nikandlv.github.io/react-mui-android-notification/ 
+
+#### Used by 
+
+* https://github.com/nikandlv/mui-nutella
+> a delicious notification system
