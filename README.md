@@ -44,9 +44,9 @@ export default function Notification() {
 
 #### Demo And Usage 
 
-> Work in progress!
+> Checkout nutella!
 
-https://nikandlv.github.io/react-mui-android-notification/ 
+https://nikandlv.github.io/mui-nutella/
 
 #### Used by 
 
